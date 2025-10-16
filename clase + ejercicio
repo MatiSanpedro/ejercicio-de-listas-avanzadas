@@ -1,0 +1,175 @@
+#CLASE LISTAS AVANZADAS
+import random
+
+#METODOS DE INSERCION:
+
+'append- agrega un elemento al final de la lista'
+frutas = ["manzana","platano"]
+frutas.append('kiwi')
+#esto me va a añadir kiwi al final de la lista!
+
+#la gramatica es: variable.metodo(lo que quiero agregar)
+#cosas = algo ;
+#cosas.append(otra_cosa)
+'.insert - inserta un elemento en la posicion especifica'
+
+'.extend - permite añadir una lista a la lista inicial'
+
+#COPIAS:
+'deep copy'
+'shallow copy'
+
+'consigna: '
+'''Hacer un grupo de listas que representen lineas de colectivos (tres al menos) de tamaño 7,
+Deben ingresar los pasajeros por día y estos son acumulables.
+debe imprimirse las lineas de colectivos, el total de pasajeros por día, por semana y el total de las tres líneas.'''
+
+
+linea_98 = [0] * 7
+linea_97 = [0] * 7
+linea_100 = [0] * 7
+
+
+
+for i in range(6):
+    generado = random.randint(1,58)
+    if linea_98[i] == 0:
+        linea_98.insert(i,generado)
+    if len(linea_98) >7:
+        linea_98.remove(0)
+print(linea_98)
+
+
+#SETS : 
+#un set es una lista de elementos cuyos indices singulares son listas de datos de un mismo tipo 
+#los elementos de un set son unicos 
+#no respetan el orden que tienen al ser declarados 
+#los elementos de un set son mutables
+set = {3,5,9,5,3,4,3}
+print(type(set))
+print(set)# 9,3,4,5 
+# UN SET NO ACEPTA REPETICIONES 
+#se pueden unir tambien
+set_uno = {1,2,3}
+set_dos = {4,5,6}
+union_set = set_uno.union(set_dos)
+print(union_set) #{1,2,3,4,5,6}
+
+'add() agrega un elemento al set'
+
+'remove() elimina un elemento especifico del set'
+
+'discard() elimina un elemento sin dar error si el elemento no esta presente'
+
+'pop() elimina y devuelve un elemento aleatorio del set'
+
+'clear() vacia el set, eliminando todos sus elementos'
+
+'union() devuelve un nuevo set con los elementos de dos sets'
+
+'intersection() devuelve un nuevo set con los elementos que estan en ambos sets'
+
+'update()añade varios elementos de otro set o lista al set original '
+
+#TUPLAS
+#son inmutables
+'desenpaquetado de tuplas:'
+'se pueden asignar los elementos de una tupla a una variable en un solo paso:'
+mi_tupla = ("juan","perez",30)
+nombre, apellido, edad = mi_tupla
+print(nombre) #imprime: Juan
+print(apellido) #imprime perez
+print(edad)#imprime 30 
+
+
+#DICCIONARIOS
+#tambien se escriben entre llaves
+#pero los elementos dentro son distintos
+
+#manera de escribirlo n1
+diccionario = dict([('Nombre', 'Sara'),
+                    ('Edad', 27),
+                    ('documento',1003883)])
+
+#manera de escribirlo n2:
+mi_diccionario = {'nombre': 'juan',
+                  'edad': 21,
+                  'ciudad': 'Buenos Aires'}
+
+#al imprimir:
+print(mi_diccionario['nombre'])# juan
+print(mi_diccionario['edad']) # 21
+'pueden crearse listas de diccionarios'
+'cada elemento de esa lista seria un diccionario como el señalado'
+
+#KEYS():
+'se utiliza el metodo solo cuando necesito las claves del diccionario'
+'devuelve una viste iterable de las claves'
+'util para verificar si una clave específica existe en el diccionario'
+#ESTO ME DEVUELVE LAS CLAVES DEL DICCIONARIO
+print(mi_diccionario.keys()) #dict_keys([nombre,edad])
+
+
+
+#FORMA CORRECTA DE ITERAR EN UN DICCIONARIO : 
+
+for elemento in mi_diccionario:
+    print(elemento['Notas'], elemento['Nombre'])
+
+
+
+
+
+                    
+
+
+
+
+
+
+#EJERCICIO DICCIONARIOS 
+
+'Crear una lista llamada estudiantes, donde cada elemento sea un diccionario con las siguientes claves: ' 
+
+"nombre", "edad", "nota" 
+
+'''1 - Cargar manualmemte 5 estudiantes
+2 - Mostrar el promedio de notas por estudiante y general
+3 - Listar los nombres de los estudiantes cuya nota sea mayor o igual a 6
+4 - Listar el o los nombre/s del o los estudiante/s con la nota mas alta
+5 - hacer un set con las divisiones (3 numeros) de cada estudiante 
+'''
+
+
+
+
+
+lista_estudiantes = [
+    {'Nombre': 'Marcos', 'Edad': 18, 'Notas': [3, 9, 8, 7, 6]},
+    {'Nombre': 'Carla',  'Edad': 19, 'Notas': [7, 9, 8, 7, 10]},
+    {'Nombre': 'Sofía',  'Edad': 15, 'Notas': [7, 8, 8, 7, 9]},
+    {'Nombre': 'Sergio', 'Edad': 18, 'Notas': [10, 4, 4, 7, 6]},
+    {'Nombre': 'María',  'Edad': 20, 'Notas': [10, 10, 3, 8, 8]}
+]
+ 
+ 
+for lista in lista_estudiantes:
+    numeros = []
+    numeros.append(lista['Notas'])
+    print(numeros)
+
+
+
+
+def menu_de_opciones():
+    while True:
+        opciones = input("1- cargar notas \n 2- mostrar promedios \n 3- ") 
+        match opciones:
+            case "1":
+                pass
+            case "2":
+                pass
+
+
+
+#menu_de_opciones()
