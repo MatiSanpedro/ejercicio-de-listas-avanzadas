@@ -125,8 +125,6 @@ for elemento in mi_diccionario:
 
 
 
-
-
 #EJERCICIO DICCIONARIOS 
 
 'Crear una lista llamada estudiantes, donde cada elemento sea un diccionario con las siguientes claves: ' 
@@ -141,7 +139,17 @@ for elemento in mi_diccionario:
 '''
 
 
+'''
 
+lista_estudiantes = [
+    {'Nombre': 'Marcos', 'Edad': 18, 'Notas': [3, 9, 8, 7, 6]},
+    {'Nombre': 'Carla',  'Edad': 19, 'Notas': [7, 9, 8, 7, 10]},
+    {'Nombre': 'Sofía',  'Edad': 15, 'Notas': [7, 8, 8, 7, 9]},
+    {'Nombre': 'Sergio', 'Edad': 18, 'Notas': [10, 4, 4, 7, 6]},
+    {'Nombre': 'María',  'Edad': 20, 'Notas': [10, 10, 3, 8, 8]}
+]
+
+'''
 
 
 lista_estudiantes = [
@@ -151,13 +159,33 @@ lista_estudiantes = [
     {'Nombre': 'Sergio', 'Edad': 18, 'Notas': [10, 4, 4, 7, 6]},
     {'Nombre': 'María',  'Edad': 20, 'Notas': [10, 10, 3, 8, 8]}
 ]
- 
- 
-for lista in lista_estudiantes:
-    numeros = []
-    numeros.append(lista['Notas'])
-    print(numeros)
 
+
+
+def ingresar_notas_input(diccionario):
+    pass
+
+
+
+def calcular_promedio(diccionario):
+    lista_promedios = [] 
+    
+    for lista in diccionario:
+        suma_numeros = 0 #variables vacias, se reinician en cada vuelta 
+        promedio = 0
+        numeros = []
+        numeros += (lista['Notas']) #guardo la lista de notas en 'numeros'
+        for j in numeros: #recorro numeros 
+            suma_numeros += j  #guardo 1x1 los numeros 
+            promedio = suma_numeros/len(numeros) #calculo el promedio 
+               
+        lista_promedios.append(promedio) #guardo en lista y retorno 
+        
+    
+    return lista_promedios
+
+promedios = calcular_promedio(lista_estudiantes)
+print(promedios)
 
 
 
@@ -173,3 +201,20 @@ def menu_de_opciones():
 
 
 #menu_de_opciones()
+
+'''lista_promedios = [] 
+    
+    for lista in lista_estudiantes:
+        suma_numeros = 0
+        promedio = 0
+        numeros = []
+        numeros += (lista['Notas'])
+        for j in numeros:
+            suma_numeros += j
+            promedio = suma_numeros/len(numeros)
+            #el error aca es que promedio no se limpia luego de sumar a la lista final,
+            
+            
+        lista_promedios.append(promedio)
+        
+        print(suma_numeros,promedio,lista_promedios)'''
